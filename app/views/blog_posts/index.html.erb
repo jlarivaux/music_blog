@@ -8,6 +8,12 @@
         <% elsif blog_post.scheduled? %>
             <div class="p-2 rounded bg-blue-100 text-gray-900">Scheduled</div>
         <% end %>
-        <%= blog_post.body %>
+        <%= blog_post.content %>
     </div>
 <% end%>
+
+<% if @pagy.count > @pagy.items %>
+  <div class="my-16">
+    <%== pagy_nav(@pagy) %>
+  </div>
+<% end %>
