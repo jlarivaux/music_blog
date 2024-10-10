@@ -2,7 +2,9 @@
 
 <% @blog_posts.each do |blog_post| %>
     <div>
-        <h2><%= link_to blog_post.title, blog_post %></h2>
+      <%= image_tag blog_post.cover_image, class: "mt-20 mb-0" if blog_post.cover_image.present? %>
+
+        <h2 class="text-center"><%= link_to blog_post.title, blog_post %></h2>
         <% if blog_post.draft? %>
             <div class="p-2 rounded bg-red-100 text-gray-900">Draft</div>
         <% elsif blog_post.scheduled? %>
@@ -13,7 +15,9 @@
 <% end%>
 
 <% if @pagy.count > @pagy.limit %>
-  <div class="my-12">
+  <div class="my-12 mb-">
     <%== pagy_nav(@pagy, ) %>
   </div>
 <% end %>
+
+<div class="mb-30"></div>
