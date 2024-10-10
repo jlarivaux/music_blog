@@ -12,8 +12,8 @@
     </div>
 <% end%>
 
-<%# if @pagy.count > @pagy.items %>
+<% if @pagy.count > @pagy.limit %>
   <div class="my-12">
     <%== pagy_nav(@pagy, ) %>
   </div>
-<%# end %>
+<% end %>
